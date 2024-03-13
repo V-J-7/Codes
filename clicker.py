@@ -1,0 +1,32 @@
+import turtle
+turtle.bgcolor("black")
+import random
+screen=turtle.Screen()
+screen.setup(width = 1.0, height = 1.0)
+canvas = screen.getcanvas()
+root = canvas.winfo_toplevel()
+root.overrideredirect(1)
+snake=turtle.Turtle()
+snake.pensize(4)
+food=turtle.Turtle()
+for d in range(20):
+    food.speed(10)
+food.hideturtle()
+food.pencolor("grey")
+snake.pencolor("yellow")
+screen.onclick(snake.goto)
+for x in range(random.randint(10,20)):
+    food.penup()
+    a=(random.randrange(-400,400),random.randrange(-400,400))
+    food.goto(a)
+    food.pendown()
+    food.begin_fill()
+    food.fillcolor("grey")
+    food.circle(5)
+    food.end_fill()
+    x=snake.xcor()
+    y=snake.ycor()
+    print(x,y)
+    print(a)
+turtle.done()
+
